@@ -23,7 +23,7 @@ export default function Home() {
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
         <div>
           <h1 className="title">
-            <Link href="/cars-SSR/all">Server Side Rendering</Link>
+            <Link href="/cars-SSR">Server Side Rendering</Link>
           </h1>
         </div>
       </div>
