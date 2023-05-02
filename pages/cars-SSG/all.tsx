@@ -11,11 +11,11 @@ interface CarProps {
 const Car: React.FC<CarProps> = ({ cars }) => {
   return (
     <>
-      <h1>Cars Server Side Rendering</h1>
+      <h1>Cars Static Side Gereration</h1>
       <ul>
         {cars.map((car) => (
           <li key={car.id}>
-            <Link href={`/cars-SSR/${car.id}`}>
+            <Link href={`/cars-SSG/${car.id}`}>
               {car.color} {car.id}
               <img src={car.image} width="300px" />
             </Link>

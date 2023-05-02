@@ -15,6 +15,7 @@ const Car: React.FC<CarProps> = ({ car }) => {
 
   return (
     <>
+      <h1>Cars Server Side Rendering</h1>
       <h1>Hello {id}</h1>
       <div>
         {car.color} {car.id}
