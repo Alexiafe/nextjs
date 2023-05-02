@@ -1,3 +1,5 @@
+import { getAllCars } from "@/utils/database";
+import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 
 interface CarProps {
@@ -27,11 +29,10 @@ const Car: React.FC<CarProps> = ({ cars }) => {
 };
 export default Car;
 
-export async function getServerSideProps() {
-  const req = await fetch(`${process.env.VERCEL_URL}/api/cars/all`);
-  const data = await req.json();
+export async function getStaticProps() {
+  const result = getAllCars();
 
   return {
-    props: { cars: data.data },
+    props: { cars: result },
   };
 }

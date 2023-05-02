@@ -1,10 +1,37 @@
+import { getAllCars } from "@/utils/database";
 import Link from "next/link";
 
-export default function Home() {
+interface CarProps {
+  cars: {
+    id: string;
+    color: string;
+    image: string;
+  }[];
+}
+
+const Car: React.FC<CarProps> = ({ cars }) => {
   return (
     <>
       <h1>Cars Server Side Rendering</h1>
-      <Link href="/cars-SSR/all">All cars</Link>
+      <ul>
+        {cars.map((car) => (
+          <li key={car.id}>
+            <Link href={`/cars-SSR/${car.id}`}>
+              {car.color} {car.id}
+              <img src={car.image} width="300px" />
+            </Link>
+          </li>
+        ))}
+      </ul>
     </>
   );
+};
+export default Car;
+
+export async function getServerSideProps() {
+  const result = getAllCars();
+
+  return {
+    props: { cars: result },
+  };
 }

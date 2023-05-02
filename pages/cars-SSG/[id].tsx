@@ -27,12 +27,25 @@ const Car: React.FC<CarProps> = ({ car }) => {
 };
 export default Car;
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = ({ params }) => {
   if (!params) throw new Error("Missing params");
 
   const result = getCarById(params.id as string);
 
   return {
     props: { car: result },
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = () => {
+  const result = getAllCars();
+
+  const paths = result.map((car) => ({
+    params: { id: car.id },
+  }));
+
+  return {
+    paths,
+    fallback: false,
   };
 };

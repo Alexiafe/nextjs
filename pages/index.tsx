@@ -21,9 +21,12 @@ export default function Home() {
       </div>
 
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <div>
+        <div className="flex justify-between">
           <h1 className="title">
             <Link href="/cars-SSR">Server Side Rendering</Link>
+          </h1>
+          <h1 className="title">
+            <Link href="/cars-SSG">Static Site Generation</Link>
           </h1>
         </div>
       </div>
