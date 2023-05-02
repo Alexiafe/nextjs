@@ -1,6 +1,14 @@
 import Link from "next/link";
 
-export default function Car({ cars }) {
+interface CarProps {
+  cars: {
+    id: string;
+    color: string;
+    image: string;
+  }[];
+}
+
+const Car: React.FC<CarProps> = ({ cars }) => {
   return (
     <>
       <ul>
@@ -15,7 +23,8 @@ export default function Car({ cars }) {
       </ul>
     </>
   );
-}
+};
+export default Car;
 
 export async function getServerSideProps() {
   const req = await fetch(`http://localhost:3000/api/cars/all`);

@@ -1,6 +1,15 @@
 import { useRouter } from "next/router";
+import { GetServerSideProps } from "next";
 
-export default function Car({ car }) {
+interface CarProps {
+  car: {
+    id: string;
+    color: string;
+    image: string;
+  };
+}
+
+const Car: React.FC<CarProps> = ({ car }) => {
   const router = useRouter();
   const { id } = router.query;
 
@@ -13,13 +22,16 @@ export default function Car({ car }) {
       <img src={car.image} width="300px" />
     </>
   );
-}
+};
+export default Car;
 
-export async function getServerSideProps({ params }) {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  if (!params) throw new Error("Missing params");
+
   const req = await fetch(`http://localhost:3000/api/cars/${params.id}`);
   const data = await req.json();
 
   return {
     props: { car: data.result },
   };
-}
+};
