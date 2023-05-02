@@ -28,7 +28,7 @@ const Car: React.FC<CarProps> = ({ cars }) => {
 export default Car;
 
 export async function getServerSideProps() {
-  const req = await fetch(`/api/cars/all`);
+  const req = await fetch(`${process.env.VERCEL_URL}/api/cars/all`);
   const data = await req.json();
 
   return {
