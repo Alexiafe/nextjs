@@ -17,7 +17,7 @@ const Car: React.FC<CarProps> = ({ cars }) => {
       <ul>
         {cars.map((car) => (
           <li key={car.id}>
-            <Link href={`/cars-SSR/${car.id}`}>
+            <Link href={`/cars-SSG/${car.id}`}>
               {car.color} {car.id}
               <img src={car.image} width="300px" />
             </Link>
