@@ -29,7 +29,7 @@ export default Car;
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   if (!params) throw new Error("Missing params");
 
-  const req = await fetch(`http://localhost:3000/api/cars/${params.id}`);
+  const req = await fetch(`/api/cars/${params.id}`);
   const data = await req.json();
 
   return {
