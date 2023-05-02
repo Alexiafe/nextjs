@@ -1,5 +1,4 @@
 import { getAllCars } from "@/utils/database";
-import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 
 interface CarProps {

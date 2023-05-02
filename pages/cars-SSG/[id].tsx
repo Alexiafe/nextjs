@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { getAllCars, getCarById } from "@/utils/database";
 
 interface CarProps {
